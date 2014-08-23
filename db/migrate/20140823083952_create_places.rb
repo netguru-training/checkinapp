@@ -6,7 +6,6 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :city
       t.string :country
 
-      has_many: 
       t.timestamps
     end
   end
