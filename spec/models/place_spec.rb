@@ -9,6 +9,7 @@
 #  country    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  postcode   :string(255)
 #
 
 require 'rails_helper'
