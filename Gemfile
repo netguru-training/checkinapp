@@ -20,7 +20,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-
 gem 'therubyracer', platforms: :ruby
 
 group :development do
