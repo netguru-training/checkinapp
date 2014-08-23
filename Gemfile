@@ -10,6 +10,8 @@ gem 'decent_decoration'
 gem 'devise'
 gem 'simple_form'
 
+gem 'annotate', '~> 2.6.5'
+
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 
