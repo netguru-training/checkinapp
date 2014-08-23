@@ -1,25 +1,24 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.1'
-
 gem 'pg'
+
 gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
+
 gem 'devise'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'sass-rails', '>= 3.2'
 
 gem 'haml-rails'
-gem 'slim'
-
-gem 'sass-rails'
+gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 
 gem 'therubyracer', platforms: :ruby
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
 
 group :development do
   gem 'spring'
@@ -38,9 +37,6 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'rails_12factor', group: :production
-
-gem 'jquery-rails'
-gem 'rmagick'
-gem 'carrierwave'
-gem 'simple_enum'
+group :production do
+  gem 'rails_12factor'
+end
