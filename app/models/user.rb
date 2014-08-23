@@ -34,4 +34,9 @@ class User < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(' ').titleize
   end
+
+  def ask_for_friendship(friend)
+    Friendship.create(sender_id: self.id, receiver_id: friend.id)
+  end
+
 end
