@@ -1,0 +1,104 @@
+%link{:href => "/demos/themes/base/jquery.ui.all.css", :rel => "stylesheet"}/
+%link{:href => "/demos/demo.css", :rel => "stylesheet"}/
+%script{:src => "http://maps.google.com/maps/api/js?sensor=false"}
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"}
+%script{:src => "/assets/jquery.ui.addresspicker.js"}
+:javascript
+  $(function() {
+    var addresspicker = $( "#addresspicker" ).addresspicker({
+      componentsFilter: 'country:FR'
+    });
+    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+      regionBias: "fr",
+      reverseGeocode: true,
+      language: "en",
+      updateCallback: showCallback,
+      mapOptions: {
+        zoom: 13,
+        center: new google.maps.LatLng(52.40, 16.925),
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      },
+      elements: {
+        map:      "#map",
+        lat:      "#lat",
+        lng:      "#lng",
+        street_number: '#street_number',
+        route: '#route',
+        locality: '#locality',
+        sublocality: '#sublocality',
+        administrative_area_level_3: '#administrative_area_level_3',
+        administrative_area_level_2: '#administrative_area_level_2',
+        administrative_area_level_1: '#administrative_area_level_1',
+        country:  '#country',
+        postal_code: '#postal_code',
+        type:    '#type'
+      }
+    });
+
+    var gmarker = addresspickerMap.addresspicker( "marker");
+    gmarker.setVisible(true);
+    addresspickerMap.addresspicker( "updatePosition");
+
+    
+
+    function showCallback(geocodeResult, parsedGeocodeResult){
+      $('#callback_result').text(JSON.stringify(parsedGeocodeResult, null, 4));
+    }
+    // Update zoom field
+    var map = $("#addresspicker_map").addresspicker("map");
+    google.maps.event.addListener(map, 'idle', function(){
+      $('#zoom').val(map.getZoom());
+    });
+
+  });
+%body
+
+.clearfix
+.input.input-positioned
+  %label Address :
+  %input#addresspicker_map/
+  %br/
+  %label Locality:
+  %input#locality{:disabled => "disabled"}/
+  %br/
+  %label SubLocality:
+  %input#sublocality{:disabled => "disabled"}/
+  %br/
+  %label Borough:
+  %input#administrative_area_level_3{:disabled => "disabled"}/
+  %br/
+  %label District:
+  %input#administrative_area_level_2{:disabled => "disabled"}/
+  %br/
+  %label State/Province:
+  %input#administrative_area_level_1{:disabled => "disabled"}/
+  %br/
+  %label Country:
+  %input#country{:disabled => "disabled"}/
+  %br/
+  %label Postal Code:
+  %input#postal_code{:disabled => "disabled"}/
+  %br/
+  %label Lat:
+  %input#lat{:disabled => "disabled"}/
+  %br/
+  %label Lng:
+  %input#lng{:disabled => "disabled"}/
+  %br/
+  %label Zoom:
+  %input#zoom{:disabled => "disabled"}/
+  %br/
+  %label Type:
+  %input#type{:disabled => "disabled"}/
+  %br/
+.map-wrapper
+
+  
+  #map
+  #legend You can drag and drop the marker to the correct location
+.input-positioned
+%label Callback:
+%textarea#callback_result{:rows => "15"}
+/ End demo
