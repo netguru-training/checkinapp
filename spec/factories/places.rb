@@ -10,11 +10,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  postcode   :string(255)
-#  longitude  :float            not null
-#  latitude   :float            not null
 #
-
-# Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
   factory :place do

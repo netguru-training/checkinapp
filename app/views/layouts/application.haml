@@ -25,10 +25,10 @@
             - if user_signed_in?
               %li
                 %a{:href => "#"}
-                = 'Signed in as: ' + current_user.first_name + ' ' + current_user.last_name
+                = "Signed in as: #{current_user.fullname}"
               %li= link_to "Sign out", destroy_user_session_path, :method => :delete
             - else
               %li= link_to "Sign in", new_user_session_path
               %li= link_to "Sign up", new_user_registration_path
-    .container
+    .container{ class: "#{controller_name.downcase} #{action_name}" }
       = yield

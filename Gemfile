@@ -16,10 +16,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 
 gem 'haml-rails'
+gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-
 gem 'therubyracer', platforms: :ruby
 
 group :development do
