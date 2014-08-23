@@ -5,9 +5,6 @@ class CreateCheckins < ActiveRecord::Migration
       t.integer :place_id
       t.timestamp :timestamp
 
-      belongs_to :user
-      belongs_to :place
-
       t.timestamps
     end
   end
