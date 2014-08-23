@@ -1,0 +1,7 @@
+= simple_form_for [place] ,html: { class: 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :street
+  = f.input :city
+  = f.input :country, as: :string
+  %br
+  = f.button :submit, class: 'btn btn-primary', value: "Create place"

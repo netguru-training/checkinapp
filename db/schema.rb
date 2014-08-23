@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823095524) do
+ActiveRecord::Schema.define(version: 20140823114513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,25 @@ ActiveRecord::Schema.define(version: 20140823095524) do
   end
 
   create_table "checkins", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "place_id"
   end
+
+  add_index "checkins", ["place_id"], name: "index_checkins_on_place_id", using: :btree
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id", using: :btree
+
+  create_table "friendships", force: true do |t|
+    t.integer  "status",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+  end
+
+  add_index "friendships", ["receiver_id"], name: "index_friendships_on_receiver_id", using: :btree
+  add_index "friendships", ["sender_id"], name: "index_friendships_on_sender_id", using: :btree
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -37,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140823095524) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "postcode"
+    t.string   "coordinates"
   end
 
   create_table "users", force: true do |t|
