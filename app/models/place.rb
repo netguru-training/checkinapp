@@ -1,3 +1,3 @@
 class Place < ActiveRecord::Base
-  has_many :checkin
+  has_many :checkins
 end
