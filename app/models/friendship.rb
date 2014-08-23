@@ -20,6 +20,7 @@ class Friendship < ActiveRecord::Base
   scope :pending, -> { where(status: '0') }
   scope :accepted, -> { where(status: '1') }
   scope :rejected, -> { where(status: '2') }
-  scope :friends, -> (user_id) { where('sender_id=? OR receiver_id=?', user_id, user_id) }
+  scope :senders, -> (user_id) { where(sender_id: user_id) }
+  scope :receivers, -> (user_id) { where(receiver_id: user_id) }
 
 end
