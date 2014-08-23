@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
   def friends
     User.find((Friendship.senders(self.id).pluck(:receiver_id)+Friendship.receivers(self.id).pluck(:sender_id)).uniq)
   end
+
+  def full_name
+    [first_name, last_name].join(' ').titleize
+  end
 end
