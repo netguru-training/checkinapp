@@ -20,10 +20,8 @@
           %ul.nav.navbar-nav
             %li.active
               %a{ href: '#' } Home
-            %li
-              %a{ href: 'places' } Places
-            %li
-              %a{ href: '#contact' } Users
+            %li= link_to 'Places', places_path
+            %li= link_to 'Users', users_path
             - if user_signed_in?
               %li
                 %a{:href => "#"}
