@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :checkins
+
+  def friends
+    User.find((Friendship.senders(self.id).pluck(:receiver_id)+Friendship.receivers(self.id).pluck(:sender_id)).uniq)
+  end
 end
