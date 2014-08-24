@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.1'
 gem 'pg'
-
+gem 'gon'
 gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
 
+
+gem 'seed_dump'
 gem 'devise'
 gem 'simple_form'
 
