@@ -13,7 +13,7 @@
         %tr
           %td= user.full_name
           %td= user.email
-          %td= user.last_checkin.decorate.formatted
+          %td= user.checkins.present? ? user.last_checkin.decorate.formatted : "No checkins"
           %td
             = link_to "Show", user_path(user), class: 'btn'
             - if user.has_pending?(current_user)
