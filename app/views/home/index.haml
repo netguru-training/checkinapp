@@ -6,13 +6,15 @@
         %tr
           %th Name
           %th E-mail
+          %th Place
           %th Actions
       %tbody
         - if @checkins != nil
-          - @checkins.each do |friend|
+          - @checkins.each do |checkins|
             %tr
-              %td= friend.full_name
-              %td= friend.email
+              %td= checkins.user.full_name
+              %td= checkins.user.email
+              %td= checkins.place.formatted
               %td
-                = link_to "Show", user_path(friend), class: 'btn btn-info'
+                = link_to "Show", user_path(checkins.user), class: 'btn btn-info'
                 = link_to "Delete from friend", '', class: 'btn btn-warning'
