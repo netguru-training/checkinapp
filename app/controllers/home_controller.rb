@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     if user_signed_in? and !current_user.last_checkin.blank?
       @x = current_user.checkins.last.place.longitude
       @y = current_user.checkins.last.place.latitude
-      @friends_near
+      @friends_near = Array.new
       @places = Place.near([@y, @x], 200, :units => :km)
       @friends = current_user.friends
       @friends.each do |f|
