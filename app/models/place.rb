@@ -10,6 +10,8 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  postcode   :string(255)
+#  longitude  :float            not null
+#  latitude   :float            not null
 #
 
 class Place < ActiveRecord::Base

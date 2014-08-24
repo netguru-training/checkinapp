@@ -3,7 +3,7 @@ class CheckinsController < ApplicationController
 
   expose(:place)
   expose(:checkins)
-  expose(:checkin)
+  expose(:checkin, attributes: :checkin_params)
 
   def index
   end
@@ -15,22 +15,21 @@ class CheckinsController < ApplicationController
   end
 
   def create
-  	self.checkin = Checkin.new(checkin_params)
-  	if checkin.save
-  	  current_user.checkins << checkin
-  	  place.checkins << checkin
-  	  flash[:success] = 'CheckIn successfully added'
-  	  redirect_to places_path
-  	else
-     render action: 'new'
-  	end
+  	checkin.user = current_user
+    if checkin.save
+      flash[:success] = 'CheckIn successfully added'
+    else
+      flash[:error] = 'CheckIn error while adding'
+    end
+    redirect_to places_path
   end
 
   def update
   end
 
   private
-    def checkin_params
-      params.require(:checkin).permit(:timestamp, :user_id, :place_id)
+
+  def checkin_params
+    params.require(:checkin).permit(:place_id)
   end
 end
