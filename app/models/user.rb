@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
     Friendship.create(sender_id: self.id, receiver_id: friend.id)
   end
 
+  def last_checkin
+    @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
+  end
+
 end
