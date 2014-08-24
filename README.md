@@ -3,6 +3,6 @@ CheckIn App
 Heroku credentials:
 
 App URL:
-    http://checkinapp-workshop.herokuapp.com/ 
+	http://vast-bastion-1758.herokuapp.com/ 
 Git URL:
-    git@heroku.com:checkinapp-workshop.git
+	git@heroku.com:vast-bastion-1758.git
