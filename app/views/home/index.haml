@@ -1,3 +1,4 @@
+%script{ src: "http://maps.google.com/maps/api/js?sensor=false" }
 .starter-template
   %h1 Check In App
   %p.lead
@@ -18,3 +19,5 @@
               %td
                 = link_to "Show", user_path(checkins.user), class: 'btn btn-info'
                 = link_to "Delete from friend", '', class: 'btn btn-warning'
+
+#map-canvas{ style: 'width: 100%; height: 400px;' }
