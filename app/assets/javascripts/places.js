@@ -1,9 +1,6 @@
 $(document).ready(function(){
   if ($('.places.new').length == 0) { return }
-  
-  var addresspicker = $( "#addresspicker" ).addresspicker({
-    componentsFilter: 'country:FR'
-  });
+
   var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
     regionBias: "fr",
     reverseGeocode: true,
@@ -36,10 +33,11 @@ $(document).ready(function(){
   gmarker.setVisible(true);
   addresspickerMap.addresspicker( "updatePosition");
 
-  
+
 
   function showCallback(geocodeResult, parsedGeocodeResult){
-    $('#callback_result').text(JSON.stringify(parsedGeocodeResult, null, 4));
+    street = parsedGeocodeResult.route + ' ' + (parsedGeocodeResult.street_number || '')
+    $('#street').val(street)
   }
   // Update zoom field
   var map = $("#addresspicker_map").addresspicker("map");
