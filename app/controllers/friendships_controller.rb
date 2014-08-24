@@ -13,7 +13,17 @@ class FriendshipsController < ApplicationController
     else
       flash[:alert] = 'You cant invite.'
     end
-    
+
+    redirect_to :back
+  end
+
+  def update
+    friendship.status = 'accepted'
+    if friendship.save
+      flash[:success] = 'You accepted invitation.'
+    else
+      flash[:alert] = 'Problem with accept invitation'
+    end
     redirect_to :back
   end
 

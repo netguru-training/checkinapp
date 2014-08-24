@@ -39,7 +39,7 @@
           %td= "Received at #{d(invitation.created_at)}"
           %td
             = link_to "Show", '', class: 'btn btn-info'
-            = link_to "Accept friendship", '', class: 'btn btn-success'
+            = link_to "Accept friendship", friendship_path(invitation), method: :put, class: 'btn btn-success'
 
 
 
