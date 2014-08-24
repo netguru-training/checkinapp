@@ -1,0 +1,51 @@
+.page-header
+  %h2 Friends
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th E-mail
+      %th Actions
+  %tbody
+    - friends.each do |friend|
+      %tr
+        %td= friend.full_name
+        %td= friend.email
+        %td
+          = link_to "Show", user_path(friend), class: 'btn btn-info'
+          = link_to "Delete from friend", '', class: 'btn btn-warning'
+.page-header
+  %h2 Pending invitations
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th E-mail
+      %th Date
+      %th Actions
+  %tbody
+    - pending_invitations.each do |invitation|
+      %tr
+        - if invitation.sender == current_user
+          %td= invitation.receiver.full_name
+          %td= invitation.receiver.email
+          %td= "Sended at #{d(invitation.created_at)}"
+          %td
+            = link_to "Show", '', class: 'btn btn-info'
+            = link_to "Cancel invitation", '', class: 'btn btn-warning'
+        - else
+          %td= invitation.sender.full_name
+          %td= invitation.sender.email
+          %td= "Received at #{d(invitation.created_at)}"
+          %td
+            = link_to "Show", '', class: 'btn btn-info'
+            = link_to "Accept friendship", '', class: 'btn btn-success'
+
+
+
+
+
+
+
+
+  /=pending_invitations.inspect

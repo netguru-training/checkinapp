@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   has_many :checkins
 
   def friends
-    User.find((Friendship.senders(self.id).pluck(:receiver_id)+Friendship.receivers(self.id).pluck(:sender_id)).uniq)
+    User.find((Friendship.accepted.senders(self.id).pluck(:receiver_id)+Friendship.accepted.receivers(self.id).pluck(:sender_id)).uniq)
   end
 
   def full_name
@@ -37,6 +37,12 @@ class User < ActiveRecord::Base
 
   def ask_for_friendship(friend)
     Friendship.create(sender_id: self.id, receiver_id: friend.id)
+  end
+
+  def last_checkin
+    if checkins.present?
+      @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
+    end
   end
 
 end
