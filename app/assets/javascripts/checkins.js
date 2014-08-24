@@ -34,8 +34,6 @@ $(document).ready(function(){
   gmarker.draggable(disabled);
   addresspickerMap.addresspicker( "updatePosition");
 
-
-
   function showCallback(geocodeResult, parsedGeocodeResult){
     street = parsedGeocodeResult.route + ' ' + (parsedGeocodeResult.street_number || '')
     $('#street').val(street)
