@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   has_many :checkins
 
   def friends
-    User.find((Friendship.senders(self.id).pluck(:receiver_id)+Friendship.receivers(self.id).pluck(:sender_id)).uniq)
+    User.find((Friendship.accepted.senders(self.id).pluck(:receiver_id)+Friendship.accepted.receivers(self.id).pluck(:sender_id)).uniq)
   end
 
   def full_name
