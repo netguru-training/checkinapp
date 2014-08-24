@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :checkins
   resources :friendships
 
+  get 'account', to: 'account#show'
+
 end
