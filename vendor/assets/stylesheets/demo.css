@@ -1,5 +1,5 @@
 body {
-  margin:0 10%;
+  margin:0;
   color: #333;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -8,15 +8,17 @@ body {
 }
 
 h1 {
-  text-align: center;
+
   font-weight:normal;
+  margin-bottom: 20px;
 }
 
 h2 {
-  font-weight:normal;
-  width:100%;
-  float:left;
-  margin: 20px 0  0px 0;
+  font-weight:lighter;
+  text-align: center;
+  width:75%;
+  font-size: 20px; 
+  margin: 30px 0;
 }
 
 code {
@@ -41,7 +43,13 @@ label#geo_label
 
 p {
   float:left;
-  width: 100%;
+  width: 90%;
+}
+h1,h2,h3,h4,p{
+    width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 .gist {
   margin-top: 10px;
@@ -72,15 +80,17 @@ textarea
 
 .map-wrapper
 {
-  float:left;  
-  margin: 0 10px 0 10px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
 }
 
 #map {
+    margin: 20px auto;
   border: 1px solid #DDD; 
-  width:300px;
-  height: 300px;
-  margin: 10px 0 10px 0;
+  width: 90%;
+  padding:0;
+  height: 400px;
   -webkit-box-shadow: #AAA 0px 0px 15px;
 }
 
