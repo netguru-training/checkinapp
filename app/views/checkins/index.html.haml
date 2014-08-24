@@ -8,13 +8,15 @@
 - if current_user.last_checkin.present?
   %h2= current_user.last_checkin.place.address
 
-%input#addresspicker_map{ type: 'text', hidden: true }
+  %input#addresspicker_map{ type: 'text', hidden: true }
 
-.clearfix
-.input.input-positioned
+  .clearfix
+  .input.input-positioned
 
-.map-wrapper
+  .map-wrapper
 
 
-  #map
-.input-positioned
+    #map
+  .input-positioned
+-else
+  %h2 No checkins yet
