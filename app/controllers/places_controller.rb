@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
   expose(:place, attributes: :place_params)
 
   def index
+    
   end
 
   def show
@@ -34,7 +35,12 @@ class PlacesController < ApplicationController
     else
       render action: 'edit'
     end
+
   end
+
+
+
+
 
   private
 

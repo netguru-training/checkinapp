@@ -77,6 +77,11 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.5)
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -223,6 +228,7 @@ DEPENDENCIES
   devise
   draper
   factory_girl_rails
+  gon
   guard
   haml-rails
   jquery-rails

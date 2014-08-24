@@ -6,6 +6,8 @@ class CheckinsController < ApplicationController
   expose(:checkin, attributes: :checkin_params)
 
   def index
+    gon.lat=checkins.last.place(checkin.place_id).latitude
+    gon.lng=checkins.last.place(checkin.place_id).longitude
   end
 
   def show

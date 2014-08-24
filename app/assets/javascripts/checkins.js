@@ -1,15 +1,15 @@
 $(document).ready(function(){
   if ($('.checkins.index').length == 0) { return }
-
   var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
     regionBias: "fr",
-    reverseGeocode: true,
+    reverseGeocode: false,
     language: "en",
     updateCallback: showCallback,
     mapOptions: {
       zoom: 13,
-      center: new google.maps.LatLng(52.40, 16.925),
-      scrollwheel: false,
+      center: new google.maps.LatLng(gon.lat, gon.lng),
+      // center: new google.maps.LatLng(52.40, 16.925),
+      scrollwheel: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     },
     elements: {
@@ -31,6 +31,7 @@ $(document).ready(function(){
 
   var gmarker = addresspickerMap.addresspicker( "marker");
   gmarker.setVisible(true);
+  gmarker.draggable(disabled);
   addresspickerMap.addresspicker( "updatePosition");
 
 
@@ -45,4 +46,6 @@ $(document).ready(function(){
     $('#zoom').val(map.getZoom());
   });
 })
+
+
 
