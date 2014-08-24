@@ -11,7 +11,8 @@
 #
 
 class Friendship < ActiveRecord::Base
-
+  validate :sender_cannot_be_receiver
+  validates :sender_id, :uniqueness => { :scope => :receiver_id }
   belongs_to :sender, class_name: 'User'
   belongs_to :receiver, class_name: 'User'
 
@@ -23,4 +24,9 @@ class Friendship < ActiveRecord::Base
   scope :senders, -> (user_id) { where(sender_id: user_id) }
   scope :receivers, -> (user_id) { where(receiver_id: user_id) }
 
+  def sender_cannot_be_receiver
+    if sender_id==receiver_id
+      errors.add(:foreveralone, "You can't invite yourself.")
+    end
+  end
 end

@@ -7,6 +7,8 @@ gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
 
+
+gem 'seed_dump'
 gem 'devise'
 gem 'simple_form'
 
