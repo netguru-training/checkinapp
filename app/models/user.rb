@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   end
 
   def last_checkin
-    @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
+    if checkins.present?
+      @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
+    end
   end
 
 end
