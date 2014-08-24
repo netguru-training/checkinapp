@@ -5,7 +5,7 @@
 
 %br/
 %h1= current_user.fullname + "'s check-ins"
-- if current_user.last_checkin.present?
+-if current_user.last_checkin.present?
   %h2= current_user.last_checkin.place.address
 
   %input#addresspicker_map{ type: 'text', hidden: true }

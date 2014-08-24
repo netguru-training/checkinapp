@@ -14,11 +14,12 @@
           %td= user.full_name
           %td= user.email
           %td= user.checkins.present? ? user.last_checkin.decorate.formatted : "No checkins"
-          %td            
-            - if user.has_pending?(current_user)
-              = link_to "Cancel invitation", friendship_path(current_user.friendship_with(user)), method: :delete , class: 'btn btn-warning'
-            - elsif user.has_friend?(current_user) 
-              = link_to "Remove from friend", friendship_path(current_user.friendship_with(user)), method: :delete , class: 'btn btn-warning' 
-              = link_to "Show", user_path(user), class: 'btn btn-info'        
-            - else
-              = link_to "Invite", friendships_path(receiver_id: user.id), method: :post , class: 'btn btn-info'
+          %td
+            .btn-group
+              - if user.has_pending?(current_user)
+                = link_to "Cancel invitation", friendship_path(current_user.friendship_with(user)), method: :delete , class: 'btn btn-warning'
+              - elsif user.has_friend?(current_user)
+                = link_to "Remove from friend", friendship_path(current_user.friendship_with(user)), method: :delete , class: 'btn btn-warning'
+                = link_to "Show", user_path(user), class: 'btn btn-info'
+              - else
+                = link_to "Invite", friendships_path(receiver_id: user.id), method: :post , class: 'btn btn-info'

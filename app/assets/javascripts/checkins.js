@@ -6,7 +6,7 @@ $(document).ready(function(){
     language: "en",
     updateCallback: showCallback,
     mapOptions: {
-      zoom: 13,
+      zoom: 16,
       center: new google.maps.LatLng(gon.lat, gon.lng),
       // center: new google.maps.LatLng(52.40, 16.925),
       scrollwheel: true,
