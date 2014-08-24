@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
   expose(:places)
-  expose(:place)
+  expose(:place, attributes: :place_params)
 
   def index
   end
@@ -13,31 +13,31 @@ class PlacesController < ApplicationController
   end
 
   def create
-  	self.place = Place.new(place_params)
-  	if place.save
-  	  flash[:success] = 'New place successfully added'
-  	  redirect_to places
-  	else
-     flash[:error] = 'New place successfully added'
-     render action: 'new'
-  	end
+    if place.save
+      flash[:success] = 'New place successfully added'
+      redirect_to places_path
+    else
+      flash[:error] = 'New place successfully added'
+      render action: 'new'
+    end
   end
 
   def destroy
-  	place.destroy
-  	flash[:success] = 'Place successfully deleted'
+    place.destroy
+    flash[:success] = 'Place successfully deleted'
   end
 
   def update
-  	if place.update(place_params)
-  	  redirect_to places
-  	else
-  	  render action: 'edit'
-  	end
+    if place.update(place_params)
+      redirect_to places_path
+    else
+      render action: 'edit'
+    end
   end
 
   private
-    def place_params
-      params.require(:place).permit(:name, :street, :city, :country, :postcode, :longitude, :latitude)
-    end
+
+  def place_params
+    params.require(:place).permit(:name, :street, :city, :country, :postcode, :longitude, :latitude)
+  end
 end
