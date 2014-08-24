@@ -2,6 +2,8 @@ class HomeController < ApplicationController
 
   def index
     gon.markers = []
+    @checkins = []
+
     if user_signed_in? and !current_user.last_checkin.blank?
       last_place = current_user.last_checkin.place
       km = params[:km] || 1
