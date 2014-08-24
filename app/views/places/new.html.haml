@@ -4,16 +4,17 @@
 
 
 %br/
-
-= simple_form_for place do |f| 
+%label{ for: 'addresspicker_map '} Address
+%input#addresspicker_map{ type: 'text' }
+= simple_form_for place do |f|
   = f.input :name
-  = f.input :street, input_html:{id: "addresspicker_map"}
+  = f.input :street, input_html:{id: "street"}
   = f.input :city, input_html:{id: "locality"}
   = f.input :country, as: :string, input_html:{id: "country"}
   = f.input :postcode, input_html:{id: "postal_code"}
   = f.input :longitude, input_html:{id: "lng"}
   = f.input :latitude, input_html:{id: "lat"}
-  
+
   = f.button :submit
 %br/
 .clearfix
@@ -21,7 +22,7 @@
 
 .map-wrapper
 
-  
+
   #map
   #legend You can drag and drop the marker to the correct location
 .input-positioned
