@@ -1,0 +1,31 @@
+
+%script{:src => "http://maps.google.com/maps/api/js?sensor=false"}
+%script{:src => "/assets/jquery.ui.addresspicker.js"}
+
+
+%br/
+%h1= current_user.fullname + "'s check-ins"
+%h2= current_user.checkins.last.place(checkin.place_id).name + " at " +current_user.checkins.last.place(checkin.place_id).latitude.to_s
+
+%label{ for: 'addresspicker_map '} Address
+%input#addresspicker_map{ type: 'text' }
+= simple_form_for place do |f|
+  = f.input :name
+  = f.input :street, input_html:{value: current_user.checkins.last.place(checkin.place_id).latitude.to_s}
+  = f.input :city, input_html:{id: "locality"}
+  = f.input :country, as: :string, input_html:{id: "country"}
+  = f.input :postcode, input_html:{id: "postal_code"}
+  = f.input :longitude, input_html:{id: "lng"}
+  = f.input :latitude, input_html:{id: "lat"}
+
+  = f.button :submit
+%br/
+.clearfix
+.input.input-positioned
+
+.map-wrapper
+
+
+  #map
+  #legend You can drag and drop the marker to the correct location
+.input-positioned
