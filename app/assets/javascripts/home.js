@@ -10,7 +10,7 @@ $(document).ready(function() {
 
   if (gon.markers.length == 0) { return }
   for(var i = 0; i < gon.markers.length; i++) {
-    var position = new google.maps.LatLng(gon.markers[i][0], gon.markers[i][0]);
+    var position = new google.maps.LatLng(gon.markers[i][0], gon.markers[i][1]);
     var marker = new google.maps.Marker({
         position: position,
         map: map
