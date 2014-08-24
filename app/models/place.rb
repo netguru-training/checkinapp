@@ -16,4 +16,8 @@
 
 class Place < ActiveRecord::Base
   has_many :checkins
+
+  def address
+    "#{street}, #{city}"
+  end
 end

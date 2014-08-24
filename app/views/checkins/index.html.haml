@@ -5,7 +5,8 @@
 
 %br/
 %h1= current_user.fullname + "'s check-ins"
-%h2= current_user.checkins.last.place(checkin.place_id).name + " at " +current_user.checkins.last.place(checkin.place_id).street + ', '+ current_user.checkins.last.place(checkin.place_id).city
+- if current_user.last_checkin.present?
+  %h2= current_user.last_checkin.place.address
 
 %input#addresspicker_map{ type: 'text', hidden: true }
 

@@ -52,9 +52,7 @@ class User < ActiveRecord::Base
   end
 
   def last_checkin
-    if checkins.present?
-      @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
-    end
+    @last_checkin ||= checkins.last
   end
 
   def friendship_with(user)
