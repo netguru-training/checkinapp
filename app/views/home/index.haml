@@ -14,7 +14,7 @@
             %tr
               %td= checkins.user.full_name
               %td= checkins.user.email
-              %td= checkins.place.formatted
+              %td= checkins.formatted
               %td
                 = link_to "Show", user_path(checkins.user), class: 'btn btn-info'
                 = link_to "Delete from friend", '', class: 'btn btn-warning'
