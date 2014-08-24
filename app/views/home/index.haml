@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .starter-template
   %h1 Check In App
   %p.lead
@@ -9,8 +8,8 @@
           %th E-mail
           %th Actions
       %tbody
-        - if @friends_near != nil
-          - @friends_near.each do |friend|
+        - if @checkins != nil
+          - @checkins.each do |friend|
             %tr
               %td= friend.full_name
               %td= friend.email
