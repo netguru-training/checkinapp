@@ -23,7 +23,7 @@ h2 {
 
 code {
   background-color: ghostWhite;
-  border: 1px solid #DEDEDE;
+  border: 1px solid #DDD;
   color: #444;
   padding: 0 3px;
 }
@@ -31,6 +31,8 @@ code {
 label {
   width: 100px;
   float:left;
+  font-weight: normal;
+  font-size: 12px;
   text-align:right;
   margin:4px 10px 0 0;
 }
@@ -66,7 +68,6 @@ h1,h2,h3,h4,p{
 
 textarea
 {
-  border-color: lightgray; 
   font-size: 14px;
   width: 600px;
   margin-bottom: 5px;
@@ -125,3 +126,7 @@ textarea
 	height: 1%;
 }
 
+input [type=text]{
+  border: 1px solid #DDD;
+  
+}
