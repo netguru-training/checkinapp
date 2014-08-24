@@ -31,12 +31,24 @@ class User < ActiveRecord::Base
     User.find((Friendship.accepted.senders(self.id).pluck(:receiver_id)+Friendship.accepted.receivers(self.id).pluck(:sender_id)).uniq)
   end
 
+  def friends_pending
+    @friends ||= User.find((Friendship.pending.senders(self.id).pluck(:receiver_id)+Friendship.pending.receivers(self.id).pluck(:sender_id)).uniq)
+  end
+
   def full_name
     [first_name, last_name].join(' ').titleize
   end
 
   def ask_for_friendship(friend)
     Friendship.create(sender_id: self.id, receiver_id: friend.id)
+  end
+
+  def has_pending?(current_user)
+    current_user.friends_pending.include?(self)
+  end
+  
+  def has_friend?(current_user)
+    current_user.friends.include?(self)
   end
 
   def last_checkin
