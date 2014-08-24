@@ -171,6 +171,9 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    seed_dump (3.2.0)
+      activerecord (~> 4)
+      activesupport (~> 4)
     shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
     simple_form (3.0.2)
@@ -230,6 +233,7 @@ DEPENDENCIES
   rails_12factor
   rspec-rails
   sass-rails (>= 3.2)
+  seed_dump
   shoulda-matchers
   simple_form
   spring
