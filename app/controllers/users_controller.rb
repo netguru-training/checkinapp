@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       gon.lat = last_checkin.place.latitude
       gon.lng = last_checkin.place.longitude
     else
-      flash[:notice] = "This user dont have any checkins yet."
+      flash[:info] = "This user dont have any checkins yet."
     end
   end
 
