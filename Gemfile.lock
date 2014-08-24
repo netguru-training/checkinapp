@@ -77,6 +77,7 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.5)
+    geocoder (1.2.4)
     gon (5.1.2)
       actionpack (>= 2.3.0)
       json
@@ -228,6 +229,7 @@ DEPENDENCIES
   devise
   draper
   factory_girl_rails
+  geocoder
   gon
   guard
   haml-rails

@@ -10,10 +10,9 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  postcode   :string(255)
-#  longitude  :float            not null
-#  latitude   :float            not null
 #
 
 class Place < ActiveRecord::Base
+  reverse_geocoded_by :latitude, :longitude
   has_many :checkins
 end
