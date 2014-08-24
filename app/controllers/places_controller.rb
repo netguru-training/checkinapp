@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
   def destroy
     place.destroy
     flash[:success] = 'Place successfully deleted'
+    redirect_to places_path, notice: 'Place successfully destroyed'
   end
 
   def update
