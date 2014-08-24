@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
       friend_checkins = current_user.friends.map(&:last_checkin).compact
       checkins = friend_checkins.select { |c| places.include?(c.place) }
-      @checkins = CheckinDecorator.decorate(checkins)
+      @checkins = CheckinDecorator.decorate_collection(checkins)
     end
   end
 end
