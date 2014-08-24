@@ -28,6 +28,10 @@ code {
   padding: 0 3px;
 }
 
+span {
+  color: rgba(50,50,50,0.7);
+}
+
 label {
   width: 100px;
   float:left;

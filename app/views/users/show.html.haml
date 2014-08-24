@@ -5,16 +5,16 @@
 %p
   %bEmail:
   =user.email
-%br
 
+%br
 -unless last_checkin.nil?
-  %h2 Last checkin:
+  %h4.checkin-title Last checkin:
 
   %p 
-    %b Name:
+    %span Name:
     =last_checkin.place.name
   %p
-    %b Address:
+    %span Address:
     =last_checkin.place.address
 
   %input#addresspicker_map{ type: 'text', hidden: true }
