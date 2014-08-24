@@ -20,7 +20,7 @@ class CheckinsController < ApplicationController
   	  current_user.checkins << checkin
   	  place.checkins << checkin
   	  flash[:success] = 'CheckIn successfully added'
-  	  redirect_to places
+  	  redirect_to places_path
   	else
      render action: 'new'
   	end
@@ -32,4 +32,5 @@ class CheckinsController < ApplicationController
   private
     def checkin_params
       params.require(:checkin).permit(:timestamp, :user_id, :place_id)
+  end
 end

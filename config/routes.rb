@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :places
   resources :users
+  resources :checkins
   resources :friendships
 
 end

@@ -20,6 +20,7 @@
         %td
           = link_to "Show", place_path(place), class: 'btn'
           = link_to "Edit", edit_place_path(place) , class: 'btn btn-info'
+          = link_to "CheckIn", new_checkin_path(place) , class: 'btn btn-info'
           = link_to "Delete", place_path(place), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-warning'
 .form-actions
   = link_to "Create new place", new_place_path, class: 'btn btn-primary'
