@@ -31,6 +31,5 @@ class CheckinsController < ApplicationController
 
   private
     def checkin_params
-      params.require(:checkin).permit(:created_at, :street, :city, :country, :postcode)
-    end
+      params.require(:checkin).permit(:timestamp, :user_id, :place_id)
 end
