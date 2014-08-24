@@ -23,6 +23,7 @@ class Friendship < ActiveRecord::Base
   scope :rejected, -> { where(status: '2') }
   scope :senders, -> (user_id) { where(sender_id: user_id) }
   scope :receivers, -> (user_id) { where(receiver_id: user_id) }
+  scope :finder, -> (user1_id, user2_id) { where('(sender_id=? AND receiver_id=?) OR (sender_id=? AND receiver_id=?)', user1_id, user2_id, user2_id, user1_id ) }
 
   def sender_cannot_be_receiver
     if sender_id==receiver_id

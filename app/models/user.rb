@@ -46,15 +46,17 @@ class User < ActiveRecord::Base
   def has_pending?(current_user)
     current_user.friends_pending.include?(self)
   end
-  
+
   def has_friend?(current_user)
     current_user.friends.include?(self)
   end
 
   def last_checkin
-    if checkins.present?
-      @last_checkin ||= checkins.last.place.name + " " + checkins.last.place.street
-    end
+    @last_checkin ||= checkins.last
+  end
+
+  def friendship_with(user)
+    Friendship.finder(self, user).last
   end
 
 end

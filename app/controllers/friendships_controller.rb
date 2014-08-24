@@ -27,4 +27,13 @@ class FriendshipsController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    if friendship.destroy
+      flash[:success] = 'You canceled invitation'
+    else
+      flash[:alert] = 'Problem with cancel invitation'
+    end
+    redirect_to :back
+  end
+
 end

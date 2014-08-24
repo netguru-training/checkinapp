@@ -15,4 +15,8 @@
 class Place < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
   has_many :checkins
+
+  def address
+    "#{street}, #{city}"
+  end
 end
